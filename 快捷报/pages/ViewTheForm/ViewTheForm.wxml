@@ -1,0 +1,89 @@
+<!--协会名称及简介-->
+<view class='FillInTheForm-title'>
+  <view class='FillInTheForm-text'>
+    <text style='font-size:17pt'>协会名称</text>
+    <text style='font-size:14pt;color:#888888'>协会简介</text>
+  </view>
+</view>
+
+<!--单行输入框-->
+<view class='FillInTheForm-edge'>
+  <view class="cu-form-group">
+    <view class="title">输入框</view>
+    <input placeholder="单行输入框"></input>
+  </view>
+</view>
+
+<!--单选框-->
+<view class='FillInTheForm-edge'>
+  <radio-group class="block">
+    <view class="cu-form-group">
+      <view class="title">单选操作(radio)</view>
+      <radio class="blue margin-left-sm"></radio>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">单选操作</view>
+      <radio class="blue margin-left-sm"></radio>
+    </view>
+  </radio-group>
+</view>
+
+<!--复选框-->
+<view class='FillInTheForm-edge'>
+  <checkbox-group>
+    <view class="cu-form-group">
+      <view class="title">复选操作(checkbox)</view>
+      <checkbox class="round blue" checked></checkbox>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">复选操作</view>
+      <checkbox class="round blue" checked></checkbox>
+    </view>
+  </checkbox-group>
+</view>
+
+<!--多行文本框-->
+<view class="cu-form-group FillInTheForm-edge">
+	<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="多行文本输入框"></textarea>
+</view>
+
+<!--图片上传-->
+<view class='FillInTheForm-edge'>
+  <view class="cu-bar bg-white margin-top">
+    <view class="action">
+      图片上传
+    </view>
+    <view class="action">
+      {{imgList.length}}/4
+    </view>
+  </view>
+  <view class="cu-form-group">
+    <view class="grid col-4 grid-square flex-sub">
+      <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+        <image src='{{imgList[index]}}' mode='aspectFill'></image>
+        <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+          <text class="cuIcon-close"></text>
+        </view>
+      </view>
+      <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<4}}">
+        <text class="cuIcon-cameraadd"></text>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!--查看按钮-->
+<view class="FillInTheForm-edge FillInTheForm-button" wx:if="{{flag=='view'}}">
+  <button class="cu-btn bg-blue round lg"  bindtap='returnPP'>返回</button>
+</view>
+
+
+<!--编辑及返回按钮-->
+<view class="FillInTheForm-edge FillInTheForm-button2" wx:if="{{flag=='edit'}}">
+  <view class='loginBtn'>
+    <button class="cu-btn bg-red round lg ">编辑</button>
+  </view>
+  <view class='registerBtn'>
+   <button class="cu-btn bg-blue round lg ">返回</button>
+  </view>
+</view>

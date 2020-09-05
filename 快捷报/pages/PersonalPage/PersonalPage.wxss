@@ -1,0 +1,28 @@
+.PP-title{
+  height:288rpx; 
+  margin: 30rpx;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  flex-direction: column;
+}
+
+.PP-container{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.mine_image_wrapper{
+  overflow:hidden;  
+  display: block;  
+  width: 160rpx;
+  height: 160rpx;
+  margin: 20rpx;
+  margin-top: 15rpx;
+  border-radius: 50%;  
+  border: 4rpx solid #fff;  
+  box-shadow: 6rpx 6rpx 20rpx rgba(0, 0, 0, 0.2);  
+}

@@ -1,0 +1,5 @@
+<view class='HELP-container' >
+  <text style='font-size:18pt;color:#000000'>使用帮助</text>
+  <text class='line' ></text>
+  <text>我是使用帮助文本......</text>
+</view>

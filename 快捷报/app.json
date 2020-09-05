@@ -1,0 +1,57 @@
+{
+  "window": {
+    "navigationBarTitleText": "快捷报",
+    "navigationBarTextStyle": "white",
+    "navigationBarBackgroundColor": "#0081ff",
+    "backgroundColor": "#eeeeee",
+    "backgroundTextStyle": "light",
+    "enablePullDownRefresh": false
+  },
+  "pages": [
+    "pages/beforeIndex/beforeIndex",
+    "pages/index/index",
+    "pages/ApplySuccessful/ApplySuccessful",
+    "pages/AuditSuccessful/AuditSuccessful",
+    "pages/CreateSuccessful/CreateSuccessful",
+    "pages/SignUpSuccessful/SignUpSuccessful",
+    "pages/FillInTheForm/FillInTheForm",
+    "pages/EditTheForm/EditTheForm",
+    "pages/ViewTheForm/ViewTheForm",
+    "pages/AuditTheForm/AuditTheForm",
+    "pages/ApplyAssociationAdministrator/ApplyAssociationAdministrator",
+    "pages/PersonalRegistrationList/PersonalRegistrationList",
+    "pages/AssociationRegistrationList/AssociationRegistrationList",
+    "pages/PersonalPage/PersonalPage",
+    "pages/HelpPage/HelpPage",
+    "pages/AssociationRegistrationStatistics/AssociationRegistrationStatistics",
+    "pages/CheckAudit/CheckAudit",
+    "pages/ManagementAssociationRegistrationForm/ManagementAssociationRegistrationForm",
+    "pages/AuditAdmin/AuditAdmin",
+    "pages/custom/custom",
+    "pages/custom2/custom2",
+    "pages/AdminApplyList/AdminApplyList"
+  ],
+  "tabBar": {
+    "list": [
+      {
+        "text": "首页",
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index.png",
+        "selectedIconPath": "images/index-selected.png"
+      },
+      {
+        "text": "个人中心",
+        "pagePath": "pages/PersonalPage/PersonalPage",
+        "iconPath": "images/me.png",
+        "selectedIconPath": "images/me-selected.png"
+      }
+    ],
+    "color": "#000"
+  },
+  "sitemapLocation": [
+    "sitemap.json",
+    "pages/FillInTheForm/FillInTheForm",
+    "pages/CreateSuccessful/CreateSuccessful"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

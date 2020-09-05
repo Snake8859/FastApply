@@ -1,0 +1,31 @@
+.FillInTheForm-title{
+  height:288rpx; 
+  margin: 30rpx;
+  border-radius: 10px;
+  background-color: white;
+  padding: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+}
+
+.FillInTheForm-text{
+  height: 144rpx;
+  width: 630rpx;
+  display: flex;
+  flex-direction:column; 
+	align-items: center;
+}
+
+.FillInTheForm-edge{
+  margin:20rpx;
+}
+
+.loginBtn { 
+ margin-left:154.22rpx;
+ float:left;
+}
+.registerBtn { 
+ margin-right:154.22rpx;
+ float:right;
+}

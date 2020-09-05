@@ -1,0 +1,33 @@
+<view class='PRL-container'>
+<view  wx:for="{{assList}}">
+  <view class='PRL-FIRST-container'>
+      <image class='PRL-image' style='border-radius: 20rpx' src='{{item.logo}}'></image>
+    <view class='PRL-details'>
+      <text>{{item.assname}}：{{item.slogan}}</text>
+      <view class='PRL-details-ps'>
+         
+            <!--待审核-->
+            <view wx:if="{{item.auditstatus=='0'}}">
+              <text style='color:#888888'> 状态：  </text>
+              <text class='cuIcon-timefill lg text-yellow'></text><text style='color:green'>待审核</text>
+            </view>
+
+            <!--未通过-->
+            <view wx:if="{{item.auditstatus=='1'}}">
+               <text style='color:#888888'> 状态：  </text>
+              <text class='cuIcon-roundclosefill lg  text-red'></text><text style='color:green'>未通过</text>
+            </view>
+
+            <!--已通过-->
+            <view wx:if="{{item.auditstatus=='2'}}">
+               <text style='color:#888888'> 状态：  </text>
+              <text class='cuIcon-roundcheckfill lg text-green'></text><text style='color:green'>已通过</text>
+            </view>
+            <button wx:if="{{item.auditstatus!='2'}}" class="cu-btn round bg-brown"role="button"aria-disabled="false" bindtap='editAssAdmin' data-id='{{item.assid}}'>修改</button>
+          <!-- <text style='color:#888888'>一天前</text> -->
+      </view>
+    </view>
+  </view>
+  <view class='line'></view>
+</view>
+</view>

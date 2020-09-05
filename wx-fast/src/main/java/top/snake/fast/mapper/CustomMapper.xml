@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.snake.fast.mapper.CustomMapper">
+
+	<select id="queryApplyedAssInfoByAssIds"  resultType="top.snake.fast.pojo.TAssociation">
+		SELECT
+			assid,
+			assname,
+			slogan,
+			logo
+		FROM
+			t_association
+		WHERE
+			assid IN 
+				<foreach collection="list" item="assid" index="index" open="(" close=")" separator=",">
+					#{assid}
+				</foreach>
+	</select>
+	
+	<select id="queryAssIdByOpenId" parameterType="java.lang.String" resultType="java.lang.String" >
+		SELECT
+			assid
+		FROM
+			t_member
+		WHERE
+			openid = #{openid}
+			AND isasshead = '0'
+	</select>
+
+</mapper>

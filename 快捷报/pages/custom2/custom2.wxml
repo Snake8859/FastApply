@@ -1,0 +1,63 @@
+<form bindsubmit='submit'>
+  <view class='FillInTheForm-edge'>
+    <view class="cu-form-group">
+      <input placeholder="显示名称" name='label'></input>
+    </view>
+  </view>
+
+  <view class='FillInTheForm-edge'>
+    <view class="cu-form-group">
+      <input placeholder="字段名称(显示名称的英文或者拼音简写)" name='fieldName'></input>
+    </view>
+  </view>
+
+  <view class='FillInTheForm-edge' wx:if="{{value!=2&&value!=3&&value!=5}}">
+    <view class="cu-form-group ">
+      <textarea name='description' maxlength="-1" disabled="{{modalName!=null}}" placeholder="字段描述"></textarea>
+    </view>
+  </view> 
+
+  
+<view style='margin-left:20rpx;margin-right:20rpx'>
+<radio-group wx:if="{{value==2}}" class="block">
+    <view class="cu-form-group margin-top ">
+      <button class="cu-btn cuIcon-add bg-green shadow " bindtap='addoption'></button>
+      <view class="title">单选操作</view>
+    </view>
+
+    <view wx:for="{{options}}" class="cu-form-group ">
+      <view class='cuIcon-round lg text-gray' style='margin-right:20rpx;'></view>
+      <input placeholder="{{item.itemName}}" data-index="{{item.itemValue}}"   bindblur="changeName"></input>
+    </view>
+</radio-group>
+</view>
+
+<view  class='FillInTheForm-edge' wx:if="{{value==3}}">
+    <view class="cu-form-group margin-top ">
+      <button class="cu-btn cuIcon-add bg-green shadow " bindtap='addoption'></button>
+      <view class="title">复选操作</view>
+    </view>
+    
+    <view wx:for="{{options}}" class="cu-form-group ">
+      <view class='cuIcon-round lg text-gray' style='margin-right:20rpx;'></view>
+      <input placeholder="{{item.itemName}}" data-index="{{item.itemValue}}"   bindblur="changeName"></input>
+    </view>
+</view>
+
+  <view  class='FillInTheForm-edge' wx:if="{{value==5}}">
+    <view class="cu-form-group">
+     <!--> <input placeholder="图片数量" name='imagenum'></input></!-->
+     <view>图片数据格式为（）</view>
+    </view>
+	</view>
+
+  <view class='FillInTheForm-edge'>
+    <view class="cu-form-group margin-top">
+      <view class="title">是否必填</view>
+      <switch name='switch'></switch>
+    </view>
+    <view class="cu-bar btn-group botton">
+      <button class="cu-btn bg-green shadow-blur round lg " form-type='submit'>提交</button>
+    </view>
+  </view>
+</form>

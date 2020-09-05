@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.snake.fast.mapper.TAssociationMapper" >
+  <resultMap id="BaseResultMap" type="top.snake.fast.pojo.TAssociation" >
+    <id column="assid" property="assid" jdbcType="VARCHAR" />
+    <result column="assname" property="assname" jdbcType="VARCHAR" />
+    <result column="slogan" property="slogan" jdbcType="VARCHAR" />
+    <result column="contact" property="contact" jdbcType="VARCHAR" />
+    <result column="logo" property="logo" jdbcType="VARCHAR" />
+    <result column="creatorid" property="creatorid" jdbcType="VARCHAR" />
+    <result column="auditstatus" property="auditstatus" jdbcType="CHAR" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="top.snake.fast.pojo.TAssociation" extends="BaseResultMap" >
+    <result column="templatecontent" property="templatecontent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    assid, assname, slogan, contact, logo, creatorid, auditstatus, reason
+  </sql>
+  <sql id="Blob_Column_List" >
+    templatecontent
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="top.snake.fast.pojo.TAssociationExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_association
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.snake.fast.pojo.TAssociationExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_association
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_association
+    where assid = #{assid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_association
+    where assid = #{assid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="top.snake.fast.pojo.TAssociationExample" >
+    delete from t_association
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="top.snake.fast.pojo.TAssociation" >
+    insert into t_association (assid, assname, slogan, 
+      contact, logo, creatorid, 
+      auditstatus, reason, templatecontent
+      )
+    values (#{assid,jdbcType=VARCHAR}, #{assname,jdbcType=VARCHAR}, #{slogan,jdbcType=VARCHAR}, 
+      #{contact,jdbcType=VARCHAR}, #{logo,jdbcType=VARCHAR}, #{creatorid,jdbcType=VARCHAR}, 
+      #{auditstatus,jdbcType=CHAR}, #{reason,jdbcType=VARCHAR}, #{templatecontent,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="top.snake.fast.pojo.TAssociation" >
+    insert into t_association
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="assid != null" >
+        assid,
+      </if>
+      <if test="assname != null" >
+        assname,
+      </if>
+      <if test="slogan != null" >
+        slogan,
+      </if>
+      <if test="contact != null" >
+        contact,
+      </if>
+      <if test="logo != null" >
+        logo,
+      </if>
+      <if test="creatorid != null" >
+        creatorid,
+      </if>
+      <if test="auditstatus != null" >
+        auditstatus,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="templatecontent != null" >
+        templatecontent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="assid != null" >
+        #{assid,jdbcType=VARCHAR},
+      </if>
+      <if test="assname != null" >
+        #{assname,jdbcType=VARCHAR},
+      </if>
+      <if test="slogan != null" >
+        #{slogan,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null" >
+        #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null" >
+        #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="auditstatus != null" >
+        #{auditstatus,jdbcType=CHAR},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="templatecontent != null" >
+        #{templatecontent,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="top.snake.fast.pojo.TAssociationExample" resultType="java.lang.Integer" >
+    select count(*) from t_association
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_association
+    <set >
+      <if test="record.assid != null" >
+        assid = #{record.assid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assname != null" >
+        assname = #{record.assname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.slogan != null" >
+        slogan = #{record.slogan,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contact != null" >
+        contact = #{record.contact,jdbcType=VARCHAR},
+      </if>
+      <if test="record.logo != null" >
+        logo = #{record.logo,jdbcType=VARCHAR},
+      </if>
+      <if test="record.creatorid != null" >
+        creatorid = #{record.creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.auditstatus != null" >
+        auditstatus = #{record.auditstatus,jdbcType=CHAR},
+      </if>
+      <if test="record.reason != null" >
+        reason = #{record.reason,jdbcType=VARCHAR},
+      </if>
+      <if test="record.templatecontent != null" >
+        templatecontent = #{record.templatecontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update t_association
+    set assid = #{record.assid,jdbcType=VARCHAR},
+      assname = #{record.assname,jdbcType=VARCHAR},
+      slogan = #{record.slogan,jdbcType=VARCHAR},
+      contact = #{record.contact,jdbcType=VARCHAR},
+      logo = #{record.logo,jdbcType=VARCHAR},
+      creatorid = #{record.creatorid,jdbcType=VARCHAR},
+      auditstatus = #{record.auditstatus,jdbcType=CHAR},
+      reason = #{record.reason,jdbcType=VARCHAR},
+      templatecontent = #{record.templatecontent,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_association
+    set assid = #{record.assid,jdbcType=VARCHAR},
+      assname = #{record.assname,jdbcType=VARCHAR},
+      slogan = #{record.slogan,jdbcType=VARCHAR},
+      contact = #{record.contact,jdbcType=VARCHAR},
+      logo = #{record.logo,jdbcType=VARCHAR},
+      creatorid = #{record.creatorid,jdbcType=VARCHAR},
+      auditstatus = #{record.auditstatus,jdbcType=CHAR},
+      reason = #{record.reason,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="top.snake.fast.pojo.TAssociation" >
+    update t_association
+    <set >
+      <if test="assname != null" >
+        assname = #{assname,jdbcType=VARCHAR},
+      </if>
+      <if test="slogan != null" >
+        slogan = #{slogan,jdbcType=VARCHAR},
+      </if>
+      <if test="contact != null" >
+        contact = #{contact,jdbcType=VARCHAR},
+      </if>
+      <if test="logo != null" >
+        logo = #{logo,jdbcType=VARCHAR},
+      </if>
+      <if test="creatorid != null" >
+        creatorid = #{creatorid,jdbcType=VARCHAR},
+      </if>
+      <if test="auditstatus != null" >
+        auditstatus = #{auditstatus,jdbcType=CHAR},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="templatecontent != null" >
+        templatecontent = #{templatecontent,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where assid = #{assid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="top.snake.fast.pojo.TAssociation" >
+    update t_association
+    set assname = #{assname,jdbcType=VARCHAR},
+      slogan = #{slogan,jdbcType=VARCHAR},
+      contact = #{contact,jdbcType=VARCHAR},
+      logo = #{logo,jdbcType=VARCHAR},
+      creatorid = #{creatorid,jdbcType=VARCHAR},
+      auditstatus = #{auditstatus,jdbcType=CHAR},
+      reason = #{reason,jdbcType=VARCHAR},
+      templatecontent = #{templatecontent,jdbcType=LONGVARCHAR}
+    where assid = #{assid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.snake.fast.pojo.TAssociation" >
+    update t_association
+    set assname = #{assname,jdbcType=VARCHAR},
+      slogan = #{slogan,jdbcType=VARCHAR},
+      contact = #{contact,jdbcType=VARCHAR},
+      logo = #{logo,jdbcType=VARCHAR},
+      creatorid = #{creatorid,jdbcType=VARCHAR},
+      auditstatus = #{auditstatus,jdbcType=CHAR},
+      reason = #{reason,jdbcType=VARCHAR}
+    where assid = #{assid,jdbcType=VARCHAR}
+  </update>
+</mapper>

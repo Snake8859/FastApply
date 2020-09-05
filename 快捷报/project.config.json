@@ -1,0 +1,188 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.7.0",
+	"appid": "wx3ada9faa41ff3299",
+	"projectname": "%E5%BF%AB%E6%8D%B7%E6%8A%A5",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 4,
+			"list": [
+				{
+					"id": 0,
+					"name": "审核成功页面",
+					"pathName": "pages/AuditSuccessful/AuditSuccessful",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "创建成功页面",
+					"pathName": "pages/CreateSuccessful/CreateSuccessful",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "申请成功页面",
+					"pathName": "pages/ApplySuccessful/ApplySuccessful",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报名成功页面",
+					"pathName": "pages/SignUpSuccessful/SignUpSuccessful",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "报名表填写页面",
+					"pathName": "pages/FillInTheForm/FillInTheForm",
+					"query": "assid=0d5216af9e9d4f3bba3b8d9c1cd408e5",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "报名表编辑页面",
+					"pathName": "pages/EditTheForm/EditTheForm",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "报名表查看页面",
+					"pathName": "pages/ViewTheForm/ViewTheForm",
+					"query": "flag=view",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "审核报名表页面",
+					"pathName": "pages/AuditTheForm/AuditTheForm",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 8,
+					"name": "申请协会管理员页面",
+					"pathName": "pages/ApplyAssociationAdministrator/ApplyAssociationAdministrator",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人报名列表页面",
+					"pathName": "pages/PersonalRegistrationList/PersonalRegistrationList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "协会报名列表页面",
+					"pathName": "pages/AssociationRegistrationList/AssociationRegistrationList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 11,
+					"name": "首页",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人页面",
+					"pathName": "pages/PersonalPage/PersonalPage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "使用帮助页面",
+					"pathName": "pages/HelpPage/HelpPage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "查看审核情况页",
+					"pathName": "pages/CheckAudit/CheckAudit",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "协会报名管理页",
+					"pathName": "pages/ManagementAssociationRegistrationForm/ManagementAssociationRegistrationForm",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "自定义协会报名表页面1",
+					"pathName": "pages/custom/custom",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "自定义协会报名表页面2",
+					"pathName": "pages/custom2/custom2",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 19,
+					"name": "审核协会管理员页面",
+					"pathName": "pages/AuditAdmin/AuditAdmin",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

@@ -1,0 +1,45 @@
+<view class='PRL-container'>
+<view  wx:for="{{assPassList}}">
+  <view class='PRL-FIRST-container'  bindtap='toCustom' data-assid='{{item.assid}}' data-assname='{{item.assname}}' data-slogan='{{item.slogan}}'>
+      <image class='PRL-image' style='border-radius: 20rpx' src='{{item.logo}}'></image>
+    <view class='PRL-details'>
+      <text>{{item.assname}}：{{item.slogan}}</text>
+      <view class='PRL-details-ps'>
+        <view wx:if="{{item.templatecontent!=null}}">
+          <text  class='cuIcon-roundcheckfill lg text-green'></text><text style='color:green'>已定制报名表</text>
+           <button class="cu-btn round bg-blue" role="button" data-target="DialogModal2" aria-disabled="false" catchtap='shareForm' data-id='{{item.assid}}'>分享</button>
+        </view>
+         <view wx:if="{{item.templatecontent==null}}">
+          <text  class='cuIcon-infofill lg text-gray'></text><text style='color:black'>未定制报名表</text>
+        </view>
+          <!-- <text style='color:#888888'>一天前</text> -->
+      </view>
+    </view>
+  </view>
+  <view class='line'></view>
+</view>
+</view>
+
+<view class="cu-modal {{modalName=='DialogModal2'?'show':''}}">
+  <view class="cu-dialog-fast">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">协会报名二维码</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      <!-- <view class="bg-img" style="background-image: url('{{shareImage}}');height:630rpx"></view> -->
+      <canvas class='canvas' canvas-id='canvas'></canvas>
+    </view>
+    <view class="cu-bar bg-white">
+      <view class="action margin-0 flex-sub text-green " bindtap="saveQRCodeToPhotosAlbum">
+        <text class="cuIcon-moneybag"></text>保存二维码
+        </view>
+      <view class="action margin-0 flex-sub text-green " bindtap="hideModal">
+        <text class="cuIcon-moneybag"></text>分享给好友
+      </view>
+    </view>
+  </view>
+</view>
+

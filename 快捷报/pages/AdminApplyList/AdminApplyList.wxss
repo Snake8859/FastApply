@@ -1,0 +1,43 @@
+/* pages/AuditAdmin/AuditAdmin.wxss */
+Page{
+  background-color: white;
+}
+
+.ARL-container{
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  background-color: white;
+  height: 100vh;
+}
+
+.ARL-FIRST-container{
+  display: flex;
+  margin-left: 30rpx;
+  margin-right: 15rpx;
+  background-color: white;
+}
+
+.ARL-images{
+  height: 90rpx;
+  width: 90rpx;
+}
+
+.ARL-details-ps{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.lines{
+  width: 666.66rpx;
+  height: 2rpx;
+  background-color: #b2b2b2;
+  margin-left: 10rpx;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.ARL-top{
+  height: 40rpx;
+}

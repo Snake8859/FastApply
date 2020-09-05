@@ -1,0 +1,19 @@
+<view class='PRL-container'>
+<view  wx:for="{{assList}}">
+  <view class='PRL-FIRST-container' bindtap='getFillInTheForm' data-assid='{{item.assid}}'>
+      <image class='PRL-image' style='border-radius: 20rpx' src='{{item.logo}}'></image>
+    <view class='PRL-details'>
+      <text>{{item.assname}}：{{item.slogan}}</text>
+      <view class='PRL-details-ps'>
+        <view>
+          <!--暂时写死成 已报名-->
+          <text style='color:#888888'> 状态：<text class='cuIcon-roundcheckfill lg text-green'></text><text style='color:green'>已报名</text>
+          </text>
+        </view>
+          <!-- <text style='color:#888888'>一天前</text> -->
+      </view>
+    </view>
+  </view>
+  <view class='line'></view>
+</view>
+</view>

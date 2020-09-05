@@ -1,0 +1,85 @@
+<!--头像框-->
+<view class='PP-title bg-gradual-blue'>
+  <view class="mine_image_wrapper">
+  <open-data  type="userAvatarUrl"></open-data>
+  </view>
+  <open-data style="margin-top:2rpx"  type="userNickName"></open-data>
+</view>
+
+<view class='PP-container'>
+
+
+  <!--普通用户权限-->
+  <view class="cu-bar bg-gradual-blue solid-bottom " style='min-height:80rpx;'>
+    <view class="action">
+      <text class="cuIcon-titles text-white"></text>普通用户权限
+    </view>
+  </view>
+
+  <view class="cu-bar bg-white solid-bottom" data-flag="view" bindtap='getPersonalRegistrationListPage'>
+    <view class="action">
+      <text class="cuIcon-form lg text-gray"></text>查看已填写报名表
+    </view>
+    <text class="cuIcon-right lg text-gray" style='margin-right:16rpx'></text>
+  </view>
+
+  <view class="cu-bar bg-white solid-bottom" bindtap='getApplyAssociationAdministratorPage'>
+    <view class="action">
+      <text class="cuIcon-friendadd lg text-gray"></text>申请成为协会管理员
+    </view>
+    <text class="cuIcon-right lg text-gray" style='margin-right:16rpx'></text>
+  </view>
+
+
+<view class="cu-bar bg-white solid-bottom" bindtap='getCheckAuditPage'>
+    <view class="action">
+      <text class="cuIcon-attention lg text-gray"></text>查看协会管理员审核情况
+    </view>
+    <text class="cuIcon-right lg text-gray" style='margin-right:16rpx'></text>
+  </view>
+
+<view wx:if="{{isAssHead=='3'}}">
+    <!--协会管理员权限-->
+    <view class="cu-bar bg-gradual-blue solid-bottom " style='min-height:80rpx;'>
+      <view class="action">
+        <text class="cuIcon-titles text-white"></text>协会管理员权限
+      </view>
+    </view>
+
+    <view class="cu-bar bg-white solid-bottom" bindtap='getManagementAssociationRegistrationFormPage'>
+      <view class="action">
+        <text class="cuIcon-edit lg text-gray"></text>查看协会定制报名表
+      </view>
+      <text class="cuIcon-right lg text-gray" style='margin-right:16rpx'></text>
+    </view>
+    <view class="cu-bar bg-white solid-bottom" bindtap='getAssociationRegistrationListPage'>
+      <view class="action">
+        <text class="cuIcon-news lg text-gray"></text>查看协会报名情况
+      </view>
+      <text class="cuIcon-right lg text-gray" style='margin-right:16rpx'></text>
+    </view>
+    <view class="cu-bar bg-white solid-bottom">
+      <view class="action">
+        <text class="cuIcon-forward lg text-gray"></text>导出协会报名表
+      </view>
+      <text class="cuIcon-right lg text-gray" style='margin-right:16rpx'></text>
+    </view>
+  </view>
+
+
+  <view wx:if="{{identity=='1'}}">
+    <!--系统管理员权限-->
+    <view class="cu-bar bg-gradual-blue solid-bottom " style='min-height:80rpx;'>
+      <view class="action">
+        <text class="cuIcon-titles text-white"></text>系统管理员权限
+      </view>
+    </view>
+
+    <view class="cu-bar bg-white solid-bottom"  style='margin-bottom:30rpx' bindtap='getAuditAdmin'>
+      <view class="action">
+        <text class="cuIcon-friendfamous lg text-gray"></text>审核协会管理员
+      </view>
+      <text class="cuIcon-right lg text-gray" style='margin-right:16rpx'></text>
+    </view>
+  </view>
+  </view>

@@ -1,0 +1,9 @@
+<!--报名列表/报名统计 导航栏-->
+<scroll-view scroll-x class="bg-blue nav text-center">
+  <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="0">
+    <text class="cuIcon-formfill"></text> 报名列表
+  </view>
+  <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="1">
+    <text class="cuIcon-rankfill"></text> 报名统计
+  </view>
+</scroll-view>

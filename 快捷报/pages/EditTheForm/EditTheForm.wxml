@@ -1,0 +1,181 @@
+<!--协会名称及简介-->
+<view class='FillInTheForm-title'>
+  <view class='FillInTheForm-text'>
+    <text style='font-size:17pt'>{{assname}}</text>
+    <text style='font-size:14pt;color:#888888'>{{slogan}}</text>
+  </view>
+</view>
+
+<form bindsubmit='signUp'>
+  <!--姓名-->
+  <view class='FillInTheForm-edge'>
+    <view class="cu-form-group">
+      <view class="title">姓名
+        <text class="font_color_red margin_left_15 vertical_align_middle">*</text>
+      </view>
+      <input name="name" value='{{name}}' placeholder="请输入姓名" type='text'></input>
+    </view>
+  </view>
+
+  <!--性别-->
+  <view class='FillInTheForm-edge'>
+
+    <radio-group class="block" name="gender">
+      <view class="cu-form-group">
+        <view class="title">性别
+          <text class="font_color_red margin_left_15 vertical_align_middle">*</text>
+        </view>
+        <radio value='1' checked='{{boyFlag}}' class="blue margin-left-sm"></radio>
+        <view class="title">男</view>
+        <radio value='2' checked='{{girlFlag}}' class="blue margin-left-sm"></radio>
+        <view class="title">女</view>
+      </view>
+    </radio-group>
+  </view>
+
+  <!--联系方式-->
+  <view class='FillInTheForm-edge'>
+    <view class="cu-form-group">
+      <view class="title">联系方式
+        <text class="font_color_red margin_left_15 vertical_align_middle">*</text>
+      </view>
+      <input name="tel" value='{{tel}}' placeholder="请输入联系方式" type='number'></input>
+    </view>
+  </view>
+
+
+  <!--遍历自定义字段-->
+  <view wx:for="{{fields}}">
+
+
+    <!--若自定义字段是单行文本-->
+    <view wx:if="{{item.type=='text'}}">
+      <view class='FillInTheForm-edge'>
+        <view class="cu-form-group">
+          <view class="title" wx:if="{{!item.required}}">{{item.label}}
+          </view>
+          <view class="title" wx:if="{{item.required}}">{{item.label}}
+            <text class="font_color_red margin_left_15 vertical_align_middle">*</text>
+          </view>
+          <input placeholder="{{item.description}}" name="{{item.fieldName}}" value='{{item.value}}' type='text'></input>
+        </view>
+      </view>
+    </view>
+
+    <!--若自定义字段是多行文本-->
+    <view wx:if="{{item.type=='textarea'}}">
+      <view class="cu-form-group FillInTheForm-edge">
+        <view class="title" wx:if="{{!item.required}}">{{item.label}}
+        </view>
+        <view class="title" wx:if="{{item.required}}">{{item.label}}
+          <text class="font_color_red margin_left_15 vertical_align_middle">*</text>
+        </view>
+        <textarea maxlength="-1" placeholder="{{item.description}}" name="{{item.fieldName}}" value='{{item.value}}'></textarea>
+      </view>
+    </view>
+
+    <!--若是单选按钮-->
+
+    <view wx:if="{{item.type=='radio'}}">
+      <view class='FillInTheForm-edge'>
+        <radio-group class="block" name="{{item.fieldName}}">
+          <view class="radio-one">
+            <view class="cu-form-group title radio" wx:if="{{!item.required}}">{{item.label}}
+            </view>
+            <view class="cu-form-group title radio" wx:if="{{item.required}}">{{item.label}}
+              <text class="font_color_red margin_left_15 vertical_align_middle">*</text>
+            </view>
+            <view class='cu-form-group' wx:for="{{item.options}}" wx:for-item="option">
+              <view class="title">{{option.itemName}}</view>
+              <view wx:if="{{option.itemValue==item.value}}">
+                   <radio class="blue margin-left-sm" checked='true' value='{{option.itemValue}}'></radio>
+              </view>
+
+              <view wx:if="{{option.itemValue!=item.value}}">
+                   <radio class="blue margin-left-sm" value='{{option.itemValue}}'></radio>
+              </view>
+             
+            </view>
+          </view>
+        </radio-group>
+      </view>
+    </view>
+
+    <!--若是多选按钮-->
+    <view wx:if="{{item.type=='checkbox'}}">
+      <view class='FillInTheForm-edge'>
+        <checkbox-group class="block" name="{{item.fieldName}}">
+          <view class="radio-one">
+            <view class="cu-form-group title radio" wx:if="{{!item.required}}">{{item.label}}
+            </view>
+            <view class="cu-form-group title radio" wx:if="{{item.required}}">{{item.label}}
+              <text class="font_color_red margin_left_15 vertical_align_middle">*</text>
+            </view>
+
+            <view class='cu-form-group' wx:for="{{item.options}}" wx:for-item="option">
+              <view class="title">{{option.itemName}}</view>        
+              <checkbox class="blue margin-left-sm" checked='{{option.checked}}'  value='{{option.itemValue}}'></checkbox>
+            </view>
+          </view>
+
+        </checkbox-group>
+      </view>
+    </view>
+
+    <!--若自定义字段是数字-->
+    <view wx:if="{{item.type=='number'}}">
+      <view class='FillInTheForm-edge'>
+        <view class="cu-form-group">
+          <view class="title" wx:if="{{!item.required}}">{{item.label}}
+          </view>
+          <view class="title" wx:if="{{item.required}}">{{item.label}}
+            <text class="font_color_red margin_left_15 vertical_align_middle">*</text>
+          </view>
+          <input placeholder="{{item.description}}" name="{{item.fieldName}}" value='{{item.value}}' type='number'></input>
+        </view>
+      </view>
+    </view>
+
+
+    <!--若是图片上传-->
+    <view wx:if="{{item.type=='image'}}">
+      <view class='FillInTheForm-edge'>
+        <view class="cu-bar bg-white margin-top">
+          <view class="action" wx:if="{{!item.required}}">{{item.label}}
+          </view>
+          <view class="action" wx:if="{{item.required}}">{{item.label}}
+            <text class="font_color_red margin_left_15 vertical_align_middle">*</text>
+          </view>
+          <view class="action">
+            {{imgList.length}}/1
+          </view>
+        </view>
+        <view class="cu-form-group">
+          <view class="grid col-4 grid-square flex-sub">
+            <view class="bg-img" wx:for="{{imgList}}" wx:key="{{index}}" bindtap="ViewImage" data-url="{{imgList[index]}}">
+              <image src='{{imgList[index]}}' mode='aspectFill' name="{{item.fieldName}}"></image>
+              <view class="cu-tag bg-red" catchtap="DelImg" data-index="{{index}}">
+                <text class="cuIcon-close"></text>
+              </view>
+            </view>
+            <view class="solids" bindtap="ChooseImage" wx:if="{{imgList.length<1}}">
+              <text class="cuIcon-cameraadd"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+
+  <!--编辑及返回按钮-->
+  <view class="FillInTheForm-edge FillInTheForm-button2">
+    <view class='loginBtn'>
+      <button class="cu-btn bg-red round lg ">编辑</button>
+    </view>
+    <view class='registerBtn'>
+      <button class="cu-btn bg-blue round lg ">返回</button>
+    </view>
+  </view>
+</form>

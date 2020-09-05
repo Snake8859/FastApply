@@ -1,0 +1,14 @@
+@import "pages/colorui/main.wxss";
+@import "pages/colorui/icon.wxss";
+
+.margin_left_15{
+  margin-left: 15rpx
+}
+
+.vertical_align_middle{
+  vertical-align: middle
+}
+
+.font_color_red{
+  color:#e83668
+}

@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.snake.fast.mapper.TUserAssociationMapper" >
+  <resultMap id="BaseResultMap" type="top.snake.fast.pojo.TUserAssociation" >
+    <id column="uaid" property="uaid" jdbcType="VARCHAR" />
+    <result column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="assid" property="assid" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    uaid, openid, assid
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.snake.fast.pojo.TUserAssociationExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_user_association
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user_association
+    where uaid = #{uaid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_user_association
+    where uaid = #{uaid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="top.snake.fast.pojo.TUserAssociationExample" >
+    delete from t_user_association
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="top.snake.fast.pojo.TUserAssociation" >
+    insert into t_user_association (uaid, openid, assid
+      )
+    values (#{uaid,jdbcType=VARCHAR}, #{openid,jdbcType=VARCHAR}, #{assid,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="top.snake.fast.pojo.TUserAssociation" >
+    insert into t_user_association
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="uaid != null" >
+        uaid,
+      </if>
+      <if test="openid != null" >
+        openid,
+      </if>
+      <if test="assid != null" >
+        assid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="uaid != null" >
+        #{uaid,jdbcType=VARCHAR},
+      </if>
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="assid != null" >
+        #{assid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="top.snake.fast.pojo.TUserAssociationExample" resultType="java.lang.Integer" >
+    select count(*) from t_user_association
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_user_association
+    <set >
+      <if test="record.uaid != null" >
+        uaid = #{record.uaid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openid != null" >
+        openid = #{record.openid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.assid != null" >
+        assid = #{record.assid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_user_association
+    set uaid = #{record.uaid,jdbcType=VARCHAR},
+      openid = #{record.openid,jdbcType=VARCHAR},
+      assid = #{record.assid,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="top.snake.fast.pojo.TUserAssociation" >
+    update t_user_association
+    <set >
+      <if test="openid != null" >
+        openid = #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="assid != null" >
+        assid = #{assid,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where uaid = #{uaid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.snake.fast.pojo.TUserAssociation" >
+    update t_user_association
+    set openid = #{openid,jdbcType=VARCHAR},
+      assid = #{assid,jdbcType=VARCHAR}
+    where uaid = #{uaid,jdbcType=VARCHAR}
+  </update>
+</mapper>

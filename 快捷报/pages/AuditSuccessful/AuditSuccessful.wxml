@@ -1,0 +1,13 @@
+  <view class='container'>
+    <view class="solids-bottom padding-xs flex align-center">
+      <view class="flex-sub text-center">
+        <view class="solid-bottom text-xsl padding">
+          <text class=" cuIcon-roundcheckfill text-green"style='font-size:200rpx'></text>
+        </view>
+        <view class="padding" style='font-size:40rpx'>审核成功</view>
+      </view>
+    </view>
+    <view class="padding flex flex-direction" bindtap='returnPP'>
+    <button class="cu-btn bg-yellow margin-tb-sm lg">返回</button>
+    </view>
+  </view>

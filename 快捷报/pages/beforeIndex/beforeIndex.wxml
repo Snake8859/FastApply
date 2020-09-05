@@ -1,0 +1,14 @@
+<!--pages/beforeIndex/beforeIndex.wxml-->
+
+
+<view class="padding bg-white">
+  <view class="bg-img bg-white padding-tb-xl" style="background-image: url('https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1200749038,3852314541&fm=26&gp=0.jpg');height: 72vh;">
+  </view>
+   <view class="text-center padding">欢迎使用快捷报</view>
+   <view class="padding flex flex-direction">
+    <button open-type='getUserInfo' class="cu-btn bg-blue margin-tb-sm lg" bindgetuserinfo='wxLogin'>微信登录</button>
+   </view>
+</view>
+
+
+

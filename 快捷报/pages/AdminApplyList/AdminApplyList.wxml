@@ -1,0 +1,40 @@
+<!--pages/AuditAdmin/AuditAdmin.wxml-->
+<view class='ARL-container'>
+<view class='ARL-top'></view>
+<view wx:for="{{assList}}">
+<!--列表项-->
+  <view class='ARL-FIRST-container'bindtap='getAuditAdmin' data-assid="{{item.assid}}" >
+    <image class='ARL-images'  src='{{item.logo}}'></image>
+    <view class='ARL-details-ps'> 
+      <!--图标+用户名称-->
+      <view style='margin-left:30rpx'>
+        <!-- <text class='cuIcon-my lg text-gray'></text> -->
+        <text style='color:#888888'> {{item.assname}}</text>
+      </view>
+      <text style='color:#888888;margin-left:60rpx' >{{item.contact}}</text>
+      <!--
+        0:待审核
+      -->
+      <view style='margin-left:60rpx' wx:if="{{item.auditstatus==0}}">
+        <view class="cu-tag round bg-gray" style='width:100rpx;margin-right:10rpx'>待审核</view>
+        <!-- <text class="cuIcon-right lg text-gray" style='font-size:30rpx' ></text> -->
+      </view>
+
+      <!--
+        1:审核未通过
+      -->
+      <view style='margin-left:60rpx' wx:if="{{item.auditstatus==1}}">
+        <view class="cu-tag round bg-red" style='width:100rpx;margin-right:10rpx'>审核未通过</view>
+      </view>
+
+      <!--
+        2:审核通过
+      -->
+      <view style='margin-left:60rpx' wx:if="{{item.auditstatus==2}}">
+        <view class="cu-tag round bg-green" style='width:100rpx;margin-right:10rpx'>审核通过</view>
+      </view>
+    </view>
+  </view>
+  <view class='lines'></view>
+</view>
+</view>

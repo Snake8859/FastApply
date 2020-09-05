@@ -1,0 +1,28 @@
+Page{
+  background-image: var(--gradualBlue);
+	color: var(--white);
+}
+
+.HELP-container{
+  height:100vh; 
+  margin: 30rpx;
+  border-radius: 10px;
+  background-color: white;
+  padding: 30rpx;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+}
+
+.line{
+  width: 630.66rpx;
+  height: 2rpx;
+  background-color: #b2b2b2;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+
+text{
+  font-size: 14pt;
+  color: #353535;
+}

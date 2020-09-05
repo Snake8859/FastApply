@@ -1,0 +1,5 @@
+/* pages/AdminApplyList/AdminApplyList.wxss */
+.AAA-container{
+  background-color: white;
+  height: 100vh;
+}

@@ -1,0 +1,19 @@
+<!--轮播图-->
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <!-- <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video> -->
+    </view>
+  </swiper-item>
+</swiper>
+
+<!--扫描二维码开关-->
+<view class='QRcode' bindtap='scanCode'>
+<text>扫描二维码开关</text>
+</view>
+
+<!--使用说明-->
+<view class='help'>
+  <view class='help-text' style='color:#576b95;font-size:13pt;text-decoration:underline' bindtap='toHelpPage' >使用说明</view> 
+</view>

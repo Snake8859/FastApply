@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="top.snake.fast.mapper.TUserMapper" >
+  <resultMap id="BaseResultMap" type="top.snake.fast.pojo.TUser" >
+    <id column="openid" property="openid" jdbcType="VARCHAR" />
+    <result column="nickname" property="nickname" jdbcType="VARCHAR" />
+    <result column="picture" property="picture" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="CHAR" />
+    <result column="telephone" property="telephone" jdbcType="INTEGER" />
+    <result column="identity" property="identity" jdbcType="CHAR" />
+    <result column="createtime" property="createtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    openid, nickname, picture, province, city, name, gender, telephone, identity, createtime
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="top.snake.fast.pojo.TUserExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from t_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_user
+    where openid = #{openid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_user
+    where openid = #{openid,jdbcType=VARCHAR}
+  </delete>
+  <delete id="deleteByExample" parameterType="top.snake.fast.pojo.TUserExample" >
+    delete from t_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="top.snake.fast.pojo.TUser" >
+    insert into t_user (openid, nickname, picture, 
+      province, city, name, 
+      gender, telephone, identity, 
+      createtime)
+    values (#{openid,jdbcType=VARCHAR}, #{nickname,jdbcType=VARCHAR}, #{picture,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=CHAR}, #{telephone,jdbcType=INTEGER}, #{identity,jdbcType=CHAR}, 
+      #{createtime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="top.snake.fast.pojo.TUser" >
+    insert into t_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="openid != null" >
+        openid,
+      </if>
+      <if test="nickname != null" >
+        nickname,
+      </if>
+      <if test="picture != null" >
+        picture,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="telephone != null" >
+        telephone,
+      </if>
+      <if test="identity != null" >
+        identity,
+      </if>
+      <if test="createtime != null" >
+        createtime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="openid != null" >
+        #{openid,jdbcType=VARCHAR},
+      </if>
+      <if test="nickname != null" >
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null" >
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=CHAR},
+      </if>
+      <if test="telephone != null" >
+        #{telephone,jdbcType=INTEGER},
+      </if>
+      <if test="identity != null" >
+        #{identity,jdbcType=CHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="top.snake.fast.pojo.TUserExample" resultType="java.lang.Integer" >
+    select count(*) from t_user
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update t_user
+    <set >
+      <if test="record.openid != null" >
+        openid = #{record.openid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.nickname != null" >
+        nickname = #{record.nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.picture != null" >
+        picture = #{record.picture,jdbcType=VARCHAR},
+      </if>
+      <if test="record.province != null" >
+        province = #{record.province,jdbcType=VARCHAR},
+      </if>
+      <if test="record.city != null" >
+        city = #{record.city,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gender != null" >
+        gender = #{record.gender,jdbcType=CHAR},
+      </if>
+      <if test="record.telephone != null" >
+        telephone = #{record.telephone,jdbcType=INTEGER},
+      </if>
+      <if test="record.identity != null" >
+        identity = #{record.identity,jdbcType=CHAR},
+      </if>
+      <if test="record.createtime != null" >
+        createtime = #{record.createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update t_user
+    set openid = #{record.openid,jdbcType=VARCHAR},
+      nickname = #{record.nickname,jdbcType=VARCHAR},
+      picture = #{record.picture,jdbcType=VARCHAR},
+      province = #{record.province,jdbcType=VARCHAR},
+      city = #{record.city,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      gender = #{record.gender,jdbcType=CHAR},
+      telephone = #{record.telephone,jdbcType=INTEGER},
+      identity = #{record.identity,jdbcType=CHAR},
+      createtime = #{record.createtime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="top.snake.fast.pojo.TUser" >
+    update t_user
+    <set >
+      <if test="nickname != null" >
+        nickname = #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="picture != null" >
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=CHAR},
+      </if>
+      <if test="telephone != null" >
+        telephone = #{telephone,jdbcType=INTEGER},
+      </if>
+      <if test="identity != null" >
+        identity = #{identity,jdbcType=CHAR},
+      </if>
+      <if test="createtime != null" >
+        createtime = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where openid = #{openid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.snake.fast.pojo.TUser" >
+    update t_user
+    set nickname = #{nickname,jdbcType=VARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=CHAR},
+      telephone = #{telephone,jdbcType=INTEGER},
+      identity = #{identity,jdbcType=CHAR},
+      createtime = #{createtime,jdbcType=TIMESTAMP}
+    where openid = #{openid,jdbcType=VARCHAR}
+  </update>
+</mapper>

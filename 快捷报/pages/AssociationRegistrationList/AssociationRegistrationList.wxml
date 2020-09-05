@@ -1,0 +1,41 @@
+<!--报名列表/报名统计 导航栏-->
+<scroll-view scroll-x class="bg-blue nav text-center">
+  <view class="cu-item {{0==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="0">
+    <text class="cuIcon-formfill"></text> 报名列表
+  </view>
+  <view class="cu-item {{1==TabCur?'text-white cur':''}}" bindtap="tabSelect" data-id="1">
+    <text class="cuIcon-rankfill"></text> 报名统计
+  </view>
+</scroll-view>
+
+<view wx:if="{{TabCur==0}}">
+<view class='ARL-container'>
+<view class='ARL-top'></view>
+<view wx:for="{{10}}">
+<!--列表项-->
+  <view class='ARL-FIRST-container'bindtap='getAuditTheForm' >
+    <image class='ARL-images'  src='/images/firstPicture.jpg'></image>
+    <view class='ARL-details-ps'> 
+      <!--图标+用户名称-->
+      <view style='margin-left:30rpx'>
+        <text class='cuIcon-my lg text-gray'></text>
+        <text style='color:#888888'> snake8859</text>
+      </view>
+      <text style='color:#888888;margin-left:60rpx' >一天前</text>
+      <view style='margin-left:60rpx'>
+        <view class="cu-tag round bg-gray" style='width:100rpx;margin-right:10rpx'>未审核</view>
+        <text class="cuIcon-right lg text-gray" style='font-size:30rpx' ></text>
+      </view>
+    </view>
+  </view>
+  <view class='lines'></view>
+</view>
+</view>
+</view>
+
+<view wx:if="{{TabCur==1}}">
+  <canvas canvas-id="pieCanvas" disable-scroll="true" class="canvas" ></canvas>
+    <view class="padding text-container"><text>{{pieTitle}}</text></view>
+    <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+  <view class="padding text-container">{{lineTitle}}</view>
+</view>
